@@ -1,8 +1,75 @@
 
+//import java.util.*;
+//import java.lang.*;
+//import java.io.*;
+
+class TicTacToe
+{
+
+	public static int ticTacToe(int[][] matrix, int row, int col, int player) {
+        matrix[row][col]=player;
+ 
+        //check row
+        boolean winner=true;
+        for(int i=0; i<matrix.length; i++){
+            if(matrix[row][i]!=player){
+                winner=false;
+                break;
+            }
+        }
+ 
+        if(winner) return player;
+ 
+        //check column
+        winner=true;
+        for(int i=0; i<matrix.length; i++){
+            if(matrix[i][col]!=player){
+                winner=false;
+                break;
+            }
+        }
+ 
+        if(winner) return player;
+ 
+        //check back diagonal
+        winner=true;
+        for(int i=0; i<matrix.length; i++){
+            if(matrix[i][i]!=player){
+                winner=false;
+                break;
+            }
+        }
+ 
+        if(winner) return player;
+ 
+        //check forward diagonal
+        winner=true;
+        for(int i=0; i<matrix.length; i++){
+            if(matrix[i][matrix.length-i-1]!=player){
+                winner=false;
+                break;
+            }
+        }
+ 
+        if(winner) return player;
+ 
+        return 0;
+    }
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[][] matrix = new int[][]{{1,0,1},{0,1,0},{0,0,2}};
+		int row = 2;
+		int colm = 2; 
+		int player = 1;
+		int winner = ticTacToe(matrix, row, colm, player);
+		System.out.println("The winner after the last move is : " + winner);
+		// your code goes here
+	}
+}
 
 
-
-**Question**: 
+##Question##: 
 Design a Tic-tac-toe game that is played between two players on a n x n grid.
 
 You may assume the following rules:
